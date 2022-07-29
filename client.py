@@ -27,8 +27,7 @@ class TimeoutTransport(xmlrpclib.Transport):
         self.timeout = timeout
 
     def make_connection(self, host):
-        conn = TimeoutHTTP(host)
-        conn.set_timeout(self.timeout)
+        conn = TimeoutHTTPConnection(host, timeout=self.timeout)
         return conn
 
 
